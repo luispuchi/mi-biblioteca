@@ -1,0 +1,22 @@
+   <h1>Titulo: <%= @books.title %></h1>
+
+<div class="row-3 container">
+  <div class="col-md-8 offset-md-2">
+  
+  <strong>Autor: </strong><%= @books.author %><br>
+  <strong>genero: </strong><%= @books.status%><br>
+  <strong>status: </strong><%= @books.gener %><br>
+  <strong>Fecha de Entrega: </strong><%= @books.start_date %><br>
+  <strong>Fecha de Devolución: </strong><%= @books.end_date %><br><br>
+  <%= link_to 'Volver', books_path,  class:"btn btn-primary" %>
+  </div>
+  
+</div>
+      
+      
+
+        
+        
+   
+      
+

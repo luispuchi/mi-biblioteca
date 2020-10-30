@@ -1,0 +1,59 @@
+<h1 class="py-4">Administra tus libros</h1>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+
+  <div class="col-md-3 offset-md-2">
+    <%= search_form_for @q do |f| %>
+    <div class="container">
+     
+      <div class="form-group">
+          <%= f.label :status_eq, "Estado" %>
+          <%= f.select :status_eq, options_for_select(Book.statuses, @q.status_eq), {},{class: "form-control"} %>
+      </div>
+    </div>
+        <%= f.submit "Buscar", class: "btn btn-primary " %>
+        <%= link_to 'Inicio', root_path, class: "btn btn-primary"  %>
+        <%= link_to 'Nuevo libro', new_book_path, class: "btn btn-primary"  %>
+         <%= link_to 'Todos', books_path, class: "btn btn-primary boton"  %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-md-8 offset-md-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :title, "Titulo") %></th>
+          <th>Autor</th>
+          <th>Genero</th>
+          <th>estado</th>
+          <th>Fecha de Entrega</th>
+          <th>Fecha de Devolución</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= book.title %></td>
+            <td><%= book.author %></td>
+            <td><%= book.gener %></td>
+            <td><%= book.status %></td>
+            <td><%= book.start_date %></td>
+            <td><%= book.end_date %></td>
+            <td ><%= link_to 'Mostrar', book %></td>
+            <td><%= link_to 'Editar', edit_book_path(book) %></td>
+            <td class="borrar"><%= link_to 'Eliminar', book, method: :delete, data: { confirm:
+            'Estás seguro de eliminar?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
+
+

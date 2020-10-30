@@ -1,0 +1,22 @@
+
+/* #cuerpo {
+  background-image: url('/app/assets/images/biblio.jpg') !important;
+} */
+
+body {
+ 
+}
+
+.jumbotron {
+  
+  background-color: cadetblue !important;
+}
+
+h1 {
+  text-align: center;
+}
+
+.biblio {
+  
+  background-color: rgb(196, 200, 209);
+}

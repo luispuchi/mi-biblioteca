@@ -1,0 +1,50 @@
+
+<%= form_with(model: @book, local: true) do |form| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> on saving book:</h2>
+
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row-3 pt-4">
+    <div class="col-md-8 offset-md-2 py-3">  
+      <div class="field">
+        <%= form.label :title, "Titulo" %>
+        <%= form.text_field :title, id: :book_title %>
+      </div>
+      <div class="field">
+        <%= form.label :author, "Autor" %>
+        <%= form.text_field :author, id: :book_author, size: '30x10' %>
+      </div>
+      <div class="field">
+        <%= form.label :gener , "Genero"%>
+        <%= form.select :gener, Book.geners.keys %>
+      </div>
+        <div class="field">
+        <%= form.label :status , "Estado"%>
+        <%= form.select :status, Book.statuses.keys %>
+      </div>
+       <div class="field">
+        <%= form.label :start_date ,"Fecha de prestado"%>
+        <%= form.date_field :start_date, id: :book_end_date %>
+      </div>
+      <div class="field">
+        <%= form.label :end_date ,"Fecha de devolución"%>
+        <%= form.date_field :end_date, id: :book_start_date %>
+      </div>
+    
+       <div class="actions py-3">
+        <%= form.submit  "Guardar", class:"btn btn-primary"%>
+       <%= link_to 'Atrás', books_path , class:"btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+<% end %>  
+
+
